@@ -126,7 +126,7 @@ while(x > 0) {
   	
  - a partially ordered set $$(L,\sqsubseteq)$$ is a set $$L$$ equipped with a partial ordering $$\sqsubseteq$$
 
-^ When $$x \sqsubseteq y$$ we say $$x$$ is at least as precise as $$y$$ or $$y$$ over-approximates $$x$$/$$y$$ is an over-approximation of $$y$$.
+^ When $$x \sqsubseteq y$$ we say $$x$$ is at least as precise as $$y$$ or $$y$$ over-approximates $$x$$/$$y$$ is an over-approximation of $$x$$.
 
 
 ---
@@ -268,7 +268,7 @@ $$
 
 ^ The composition of monotone functions is monotone. However, being monotone does not imply being extensive ($$ \forall l \in L: l \sqsubseteq f(l) $$). A function that maps all values to $$\bot$$ is clearly monotone, but not extensive.
 
-The function $$f$$ is **distributiv** if:
+The function $$f$$ is **distributive** if:
 
 $$
 \forall l_1,l_2 \in L_1 : f (l_1 \sqcup l_2) = f(l_1) \sqcup f(l_2)
@@ -383,7 +383,7 @@ _Determine for each program point, which expressions must have already been comp
          }
 ```
 
-^ The expression `a + b` is available every time execution reaches the test (`pc 4`).
+^ The expression `a + b` is available every time execution reaches the test (`pc 3`).
 
 ---
 
@@ -590,12 +590,12 @@ $$
 Let's define a helper function which determines for a node $$v \in V$$ the set of nodes on which the node depends. $$dep : V \rightarrow \mathcal{P}(V)$$
 
 Let $$W$$ be a worklist:
- $$ x_1=\bot;\dots,;x_n = \bot; $$<br> 
+ $$ x_1=\bot;\dots;x_n = \bot; $$<br> 
  $$ W=\{v_1,\dots,v_n\}; $$<br>
- $$ while (w \neq \emptyset) \{ $$<br>
+ $$ while (W \neq \emptyset) \{ $$<br>
  $$ \quad i = W.removeNext();$$<br>
  $$ \quad y = F_i(x_1,\dots,x_n);$$<br>
- $$ \quad if(x_i = y) \{$$<br>
+ $$ \quad if(x_i \neq y) \{$$<br>
  $$ \qquad for(v_j \in dep(v_i)) \; W.add(v_j);$$<br>
  $$ \qquad x_i = y; $$<br> 
  $$ \quad \}$$<br>
