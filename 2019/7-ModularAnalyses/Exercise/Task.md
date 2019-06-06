@@ -7,9 +7,13 @@ Technische Universität Darmstadt
 
 I would like to thank Florian Kübler and Dominik Helm for creating this exercise.
 
+If you have questions regarding OPAL don't hesitate to ask them in the [OPAL Gitter channel](https://gitter.im/OPAL-Project/Lobby)!
+
 # Fixed Point Computations Framework
 
 You should use the provided template. That project is preconfigured to use the latest snapshot version of OPAL and already contains the initial configuration. The template for this exercise can be found at: [https://github.com/stg-tud/apsa/tree/master/2019/7-ModularAnalyses/Exercise/template](https://github.com/stg-tud/apsa/tree/master/2019/7-ModularAnalyses/Exercise/template)
+
+If the provided template does not compile, you may have an outdated version of OPAL. Please, make sure that you have downloaded the latest snapshot of OPAL. The easiest way to do so is to call "sbt cleanCache" and "sbt cleanLocal". If this doesn't help go to the your local .ivy cache and delete all jars relates to OPAL–they can be found in the respective sub folder. After that, when you compile the template, you should see that OPAL downloads the latest versions from the SNAPSHOT repository!
 
 > ️⚠️ Always ensure that you use the latest snapshot version. You can clean the latest (snapshot) version that you have downloaded using the command `sbt cleanCache cleanLocal` in your project's root folder.
 
@@ -44,7 +48,7 @@ The respective property is already available within OPAL (`org.opalj.br.fpcf.pro
 These methods are of interesst when determining whether a method is mathematically pure.
 Furthermore, methods without allocations may not lead to `OutOfMemory` exceptions.
 
-You should use the property store to retrieve the callees of the method under analysis (see `org.opalj.br.fpcf.cg.properties.Callees#callSites`). Furthermore, you can also get the method's three-address from the property store. 
+You should use the property store to retrieve the callees of the method under analysis (see `org.opalj.br.fpcf.cg.properties.Callees#callSites`). Furthermore, you can also get the method's three-address code from the property store. 
  The template is configured in a way, such that the results for `Callees` and `TACAI` are already final.
 
 You may ignore the allocation of implicitly thrown exceptions.
